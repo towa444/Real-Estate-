@@ -176,13 +176,13 @@ export default function Profile() {
         />
         <p className='text-sm self-center'>
           {fileUploadError ? (
-            <span className='text-red-700'>
+            <span className='text-red-500 font-semibold py-2 px-4  rounded shadow'>
               Error Image upload (image must be less than 2 mb)
             </span>
           ) : filePerc > 0 && filePerc < 100 ? (
             <span className='text-slate-700'>{`Uploading ${filePerc}%`}</span>
           ) : filePerc === 100 ? (
-            <span className='text-green-700'>Image successfully uploaded!</span>
+            <span className='text-green-300 font-semibold'>Image successfully uploaded!</span>
           ) : (
             ''
           )}
@@ -212,12 +212,12 @@ export default function Profile() {
         />
         <button
           disabled={loading}
-          className='bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80'
+          className='bg-slate-300 text-slate-800 rounded-lg p-3 uppercase font-semibold py-2 px-4  rounded shadow hover:opacity-95 disabled:opacity-80'
         >
           {loading ? 'Loading...' : 'Update'}
         </button>
         <Link
-          className='bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-95'
+          className='bg-red-500 font-semi-bold text-white p-3 rounded-lg uppercase text-center font-semibold py-2 px-4  rounded shadow hover:opacity-95'
           to={'/create-listing'}
         >
           Create Listing
@@ -226,29 +226,29 @@ export default function Profile() {
       <div className='flex justify-between mt-5'>
         <span
           onClick={handleDeleteUser}
-          className='text-red-700 cursor-pointer'
+          className='bg-slate-300 hover:bg-slate-200 text-gray-800 font-semibold py-2 px-4  rounded shadow'
         >
           Delete account
         </span>
-        <span onClick={handleSignOut} className='text-red-700 cursor-pointer'>
+        <span onClick={handleSignOut} className='bg-slate-300 hover:bg-slate-200 text-gray-800 font-semibold py-2 px-4 rounded shadow'>
           Sign out
         </span>
       </div>
 
       <p className='text-red-700 mt-5'>{error ? error : ''}</p>
-      <p className='text-green-700 mt-5'>
+      <p className='text-green-300 mt-5'>
         {updateSuccess ? 'User is updated successfully!' : ''}
       </p>
-      <button onClick={handleShowListings} className='text-green-700 w-full'>
+      <button onClick={handleShowListings} className='bg-slate-300 w-full hover:bg-slate-200 text-gray-800 font-semibold py-2 px-4  rounded shadow'>
         Show Listings
       </button>
-      <p className='text-red-700 mt-5'>
+      <p className='text-red-500 mt-5 font-semibold'>
         {showListingsError ? 'Error showing listings' : ''}
       </p>
 
       {userListings && userListings.length > 0 && (
         <div className='flex flex-col gap-4'>
-          <h1 className='text-center mt-7 text-2xl font-semibold'>
+          <h1 className='text-center mt-7 text-2xl font-semibold text-slate-700'>
             Your Listings
           </h1>
           {userListings.map((listing) => (
@@ -273,12 +273,12 @@ export default function Profile() {
               <div className='flex flex-col item-center'>
                 <button
                   onClick={() => handleListingDelete(listing._id)}
-                  className='text-red-700 uppercase'
+                  className='bg-slate-300 hover:bg-slate-200 text-gray-800 font-semibold py-2 px-4  rounded shadow'
                 >
                   Delete
                 </button>
                 <Link to={`/update-listing/${listing._id}`}>
-                  <button className='text-green-700 uppercase'>Edit</button>
+                  <button className='bg-slate-300 hover:bg-slate-200 text-gray-800 font-semibold py-2 px-4  rounded shadow'>Edit</button>
                 </Link>
               </div>
             </div>
